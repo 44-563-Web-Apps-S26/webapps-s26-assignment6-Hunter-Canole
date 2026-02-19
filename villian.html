@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>
+        Assignment 6 Villans
+    </title>
+    <h1>
+        Villains by Hunter Canole
+    </h1>
+</head>
+<body>
+
+<h2>Getting input</h2>
+
+<form>
+    <label for="Joker">Funny Man </label>
+    <input type ="password" id="Joker" name="Joker" > <br>
+
+    <label for="form1_nick">Guess the villain </label>
+    <input type ="text" id="form1_nick" name="check"> <br>
+
+    <input type="button" onclick="checkVillain()" value="Check the guess">
+</form>
+
+
+<p id="result"></p>
+
+<script> 
+var caught = 0
+var gotAway = 0
+
+function checkVillain(){
+    villian = document.getElementById("Joker").value
+    guess = document.getElementById("form1_nick").value
+    
+    if(guess === villian){
+        alert("You caught them")
+        caught = caught + 1
+    } else {
+        alert("Maybe next time")
+        gotAway += 1
+    }
+    document.getElementById("result").innerHTML = "Caught: " + caught + "  Got Away: " + gotAway;
+}
+function resolveForm (){
+    console.log("Getting form values")
+    age = document.getElementById("form1_age").value
+    nick = document.getElementById("form1_nick").value
+    confirmed = confirm("Are these the values? "+age+" and "+nick)
+    
+    out = document.getElementById("result")
+    if(confirmed){
+        out.innerHTML = "Values were confirmed"
+    } else {
+        out.innerHTML = "Values were not confirmed"
+    }
+}
+</script>
+
+</body>
+</html> 
