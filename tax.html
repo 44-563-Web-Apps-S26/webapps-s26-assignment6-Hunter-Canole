@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Tax thingy
+    </title>
+</head>
+<body>
+
+<h1>Hunter Canole Tax Table Computation</h1>
+
+<form>
+    <input type ="number" id="income" name="Enter Income" value=5000> <br>
+    <input type ="number" id="baseRate" name="Enter the base tax rate" value=.05> <br>
+    <input type ="number" id="cutoff" name="Enter the cut off" value=7500> <br>
+    <input type ="number" id="extRate" name="Enter the extended rate" value=.15> <br>
+
+    <input type="button" onclick="doTax()" value="Show tax table">
+
+</form>
+<form>
+        <input type="radio" id="power" name="power" value="exponent" onclick="chooseOp()" >
+        <label for="power">power</label></br>
+        <input type="radio" id="sum" name="sum" value="add" onclick="chooseOp()" >
+        <label for="sum">sum</label></br>
+        <input type="radio" id="mod" name="mod" value="mod" onclick="chooseOp()" >
+        <label for="mod">mod</label></br>
+    
+<p id="result"></p>
+<p id="results"></p>
+
+<script> 
+
+function doTax(){
+    income = Number(document.getElementById("income").value)
+    baseRate = Number(document.getElementById("baseRate").value)
+    cutoff = Number(document.getElementById("cutoff").value)
+    extRate = Number(document.getElementById("extRate").value)
+    taxTable = ""
+    for( i=1; i<5; i++) {
+        incomeLevel = income * i 
+        if (incomeLevel > cutoff){
+            calculatedTax= ((cutoff * baseRate) + ( (incomeLevel-cutoff) * extRate))
+        }
+            else{
+            calculatedTax = incomeLevel * baseRate
+            }
+        taxTable += " income Level " + incomeLevel + " is " + calculatedTax ; 
+        }
+    document.getElementById("result").innerHTML =
+        "Taxes are: " + taxTable;
+        }
+function chooseOp(){
+    income = Number(document.getElementById("income").value)
+    baseRate = Number(document.getElementById("baseRate").value)
+    power =document.getElementById("power").checked
+    add  =document.getElementById("sum").checked
+    mod=document.getElementById("mod").checked
+
+    if (power === true){
+        calc = income ** baseRate
+        document.getElementById("results").innerHTML =
+        income + " ** " + baseRate + " = " + calc;
+    }
+    if (add === true){
+        calc = income + baseRate
+        document.getElementById("results").innerHTML =
+        
+        income + " + " + baseRate + " = " + calc;
+    }
+    if (mod === true){
+        calc = income % baseRate
+        document.getElementById("results").innerHTML =
+        
+        income + " % " + baseRate + " = " + calc;
+    }
+}
+
+function resolveForm (){
+    console.log("Getting form values")
+    age = document.getElementById("form1_age").value
+    nick = document.getElementById("form1_nick").value
+    confirmed = confirm("Are these the values? "+age+" and "+nick)
+    
+    out = document.getElementById("result")
+    if(confirmed){
+        out.innerHTML = "Values were confirmed"
+    } else {
+        out.innerHTML = "Values were not confirmed"
+    }
+}
+</script>
+
+</body>
+</html> 

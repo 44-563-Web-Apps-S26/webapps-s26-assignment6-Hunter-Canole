@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        travel planner
+    </title>
+</head>
+<body>
+
+<h1>Hunter Canole Travel Planner</h1>
+
+<form>
+<input type="checkbox" id="Caribbean" name="Caribbean"
+value=True >
+<label for="Caribbean">Caribbean</label></br>
+<input type="checkbox" id="Mediterranean" name="Mediterranean"
+value=True>
+<label for="Mediterranean">Mediterranean</label></br>
+<input type="checkbox" id="Baltic" name="Baltic" value=False>
+<label for="Baltic">Baltic</label></br>
+<input type="button" onclick="choices()" value="Cruise Choices">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+var my_trip = {}
+
+function choices (){
+    my_trip = {}
+    my_trip.cari = document.getElementById("Caribbean").checked
+    my_trip.medi = document.getElementById("Mediterranean").checked
+    my_trip.balt = document.getElementById("Baltic").checked
+    document.getElementById("result").innerHTML =
+        "Caribbean: " + my_trip.cari + "<br>" +
+        "Mediterranean: " + my_trip.medi + "<br>" +
+        "Baltic: " + my_trip.balt;
+}
+</script>
+
+</body>
+</html> 
