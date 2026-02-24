@@ -21,11 +21,33 @@ value=True>
 <input type="button" onclick="choices()" value="Cruise Choices">
 </form>
 
+<form>
+    <label for="orfin">Enter starting city</label>
+    <input type ="text" id="orgin" name="origin city" value="Athens"> <br>
 
-<p id="result">This text will be replaced </p>
+    <label for="terminal">Enter ending city </label>
+    <input type ="text" id="terminal" name="terminal city"> <br>
+
+    <input type="button" onclick="updateTrip()" value="Update the trip">
+</form>
+
+<p id="result"></p>
 
 <script> 
 var my_trip = {}
+
+function updateTrip(){
+     orgin = document.getElementById("orgin").value
+     terminal = document.getElementById("terminal").value
+     my_trip.start_city = orgin
+     my_trip.end_city = terminal
+     document.getElementById("result").innerHTML =
+        "Trip Start: " + my_trip.start_city +
+        "<br> Caribbean: " + my_trip.cari +
+        "<br> Mediterranean: " + my_trip.medi +
+        "<br> Baltic: " + my_trip.balt + 
+        "<br> Trip End: " + my_trip.end_city;
+}
 
 function choices (){
     my_trip = {}
