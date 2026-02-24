@@ -25,10 +25,35 @@
 
 <p id="result"></p>
 
+ <div class="container">
+    <img id="treePic" src="Cedar_tree.jpg" class="img-fluid" alt="Cedar Tree" style="width:150px;height:150px;" onclick=updatePic()>
+  </div>
+
 <script> 
 var caught = 0
 var gotAway = 0
+var usePic = 1
 
+function updatePic(){
+    var img = document.getElementById("treePic")
+    switch (usePic) {
+    case 1:
+        img.src = "Elm_tree.jpg";
+            img.alt = "Elm Tree";
+            usePic = 2;
+        break;
+    case 2:
+        img.src = "Oak_tree.webp";
+            img.alt = "Oak Tree";
+            usePic = 3;
+        break;
+    case 3:
+        img.src = "Cedar_tree.jpg";
+            img.alt = "Cedar Tree";
+            usePic = 1;
+        break;
+}
+}
 function checkVillain(){
     villian = document.getElementById("Joker").value
     guess = document.getElementById("form1_nick").value
